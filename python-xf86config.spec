@@ -14,7 +14,7 @@ BuildRequires:	glib2-devel
 BuildRequires:	python
 BuildRequires:	python-devel
 Requires:	glib2
-Requires:	python = %{pyver}
+Requires:	python >= %{pyver}
 ExcludeArch:	s390 s390x ppc64
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
