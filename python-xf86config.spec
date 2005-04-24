@@ -1,6 +1,6 @@
-%define pyver %(python -c 'import sys ; print sys.version[:3]')
-
+# $Revision: 1.3 $
 Summary:	Python wrappers for libxf86config
+Summary(pl):	Pythonowe dowi±zania do libxf86config
 Name:		python-xf86config
 Version:	0.3.19
 Release:	1
@@ -13,8 +13,8 @@ BuildRequires:	X11-devel
 BuildRequires:	glib2-devel
 BuildRequires:	python
 BuildRequires:	python-devel
+%pyrequires_eq	python
 Requires:	glib2
-Requires:	python >= %{pyver}
 ExcludeArch:	s390 s390x ppc64
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -22,28 +22,36 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Python wrappers for the X server config file library libxf86config.
 It is used to read and write X server configuration files.
 
+%description -l pl
+Pythonowe dowi±zania do biblioteki pliku konfiguracyjnego X serwera
+libxf86config. Jest ona wykorzystywana do odczytywania i zapisywania
+plików konfiguracyjnych X serwera.
+
 %prep
 %setup -q -n pyxf86config-%{version}
 
 %build
 #export CFLAGS="$RPM_OPT_FLAGS -fPIC"
-%configure --x-libraries=/usr/X11R6/%{_lib} --with-python-version=%{pyver}
+%configure \
+	--x-libraries=/usr/X11R6/%{_lib} \
+	--with-python-version=%{py_ver}
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 %makeinstall
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %preun
-if [ -d %{_libdir}/python%{pyver}/site-packages/xf86config.pyc ] ; then
-  rm -f %{_libdir}/python%{pyver}/site-packages/xf86config.pyc
+if [ -d %{py_sitedir}/xf86config.pyc ] ; then
+  rm -f %{py_sitedir}/xf86config.pyc
 fi
 
 %files
 %defattr(644,root,root,755)
 %doc README NEWS AUTHORS ChangeLog
-%{_libdir}/python?.?/site-packages/ixf86configmodule.so
-%{_libdir}/python?.?/site-packages/xf86config.py
+%{py_sitedir}/ixf86configmodule.so
+%{py_sitedir}/xf86config.py
