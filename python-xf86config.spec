@@ -1,21 +1,21 @@
-# $Revision: 1.3 $
 Summary:	Python wrappers for libxf86config
 Summary(pl):	Pythonowe dowi±zania do libxf86config
 Name:		python-xf86config
 Version:	0.3.19
 Release:	1
 License:	GPL
-Group:		System Environment/Libraries
+Group:		Libraries
 Source0:	pyxf86config-%{version}.tar.gz
 # Source0-md5:	5421d1bc0038344df6bd11e8d0db435d
 URL:		http://www.redhat.com/
-BuildRequires:	X11-devel
-BuildRequires:	glib2-devel
+BuildRequires:	XFree86-devel
+BuildRequires:	automake
+BuildRequires:	glib2-devel >= 2.0.0
+BuildRequires:	pkgconfig
 BuildRequires:	python
 BuildRequires:	python-devel
-%pyrequires_eq	python
-Requires:	glib2
-ExcludeArch:	s390 s390x ppc64
+%pyrequires_eq	python-libs
+ExcludeArch:	ppc64 s390 s390x
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -31,27 +31,22 @@ plików konfiguracyjnych X serwera.
 %setup -q -n pyxf86config-%{version}
 
 %build
-#export CFLAGS="$RPM_OPT_FLAGS -fPIC"
+cp -f /usr/share/automake/config.* .
 %configure \
-	--x-libraries=/usr/X11R6/%{_lib} \
 	--with-python-version=%{py_ver}
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%makeinstall
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%preun
-if [ -d %{py_sitedir}/xf86config.pyc ] ; then
-  rm -f %{py_sitedir}/xf86config.pyc
-fi
-
 %files
 %defattr(644,root,root,755)
 %doc README NEWS AUTHORS ChangeLog
-%{py_sitedir}/ixf86configmodule.so
+%attr(755,root,root) %{py_sitedir}/ixf86configmodule.so
 %{py_sitedir}/xf86config.py
