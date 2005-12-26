@@ -34,7 +34,8 @@ plików konfiguracyjnych X serwera.
 cp -f /usr/share/automake/config.* .
 %configure \
 	--with-python-version=%{py_ver}
-%{__make}
+%{__make} \
+	AM_CFLAGS="-fPIC"
 
 %install
 rm -rf $RPM_BUILD_ROOT
