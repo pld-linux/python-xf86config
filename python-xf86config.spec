@@ -2,7 +2,7 @@ Summary:	Python wrappers for libxf86config
 Summary(pl):	Pythonowe dowi±zania do libxf86config
 Name:		python-xf86config
 Version:	0.3.19
-Release:	1
+Release:	2
 License:	GPL
 Group:		Libraries
 Source0:	pyxf86config-%{version}.tar.gz
