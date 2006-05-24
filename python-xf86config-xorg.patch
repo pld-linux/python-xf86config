@@ -1,0 +1,18 @@
+--- pyxf86config-0.3.24/Makefile.am	2006-01-17 08:19:42.000000000 +0200
++++ pyxf86config-0.3.19/Makefile.am	2002-12-13 17:18:43.000000000 +0200
+@@ -1,4 +1,4 @@
+-CFLAGS = @CFLAGS@ -I../include -I@PYTHON_INC@ @GLIB_CFLAGS@ @XORG_SERVER_CFLAGS@ @x_cflags@
++CFLAGS = @CFLAGS@ -I../include -I@PYTHON_INC@ @GLIB_CFLAGS@ @x_cflags@
+ 
+ pythondir = $(libdir)/python@PYTHON_VERSION@/site-packages
+ 
+--- pyxf86config-0.3.24/configure.in~	2006-02-22 17:34:53.000000000 +0200
++++ pyxf86config-0.3.24/configure.in	2006-05-25 01:27:18.907041833 +0300
+@@ -14,7 +14,6 @@
+ 
+ PKG_CHECK_MODULES(GLIB,[glib-2.0 gmodule-2.0])
+ PKG_CHECK_MODULES(GOBJECT,[glib-2.0 gmodule-2.0 gobject-2.0])
+-PKG_CHECK_MODULES(XORG_SERVER,[xorg-server])
+ AC_DEFINE(G_DISABLE_DEPRECATED,,[Stay away from deprecated glib functionality.])
+ 
+ AM_MAINTAINER_MODE
