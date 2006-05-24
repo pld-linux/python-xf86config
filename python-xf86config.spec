@@ -7,6 +7,7 @@ License:	GPL
 Group:		Libraries
 Source0:	pyxf86config-%{version}.tar.gz
 # Source0-md5:	43488299e096b3fed4f080579f9e7fbb
+Patch0:		%{name}-xorg.patch
 URL:		http://www.redhat.com/
 BuildRequires:	XFree86-devel
 BuildRequires:	automake
@@ -19,8 +20,8 @@ ExcludeArch:	ppc64 s390 s390x
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Python wrappers for the X server config file library libxf86config.
-It is used to read and write X server configuration files.
+Python wrappers for the X server config file library libxf86config. It
+is used to read and write X server configuration files.
 
 %description -l pl
 Pythonowe dowi±zania do biblioteki pliku konfiguracyjnego X serwera
@@ -29,9 +30,14 @@ plików konfiguracyjnych X serwera.
 
 %prep
 %setup -q -n pyxf86config-%{version}
+%patch0 -p1
 
 %build
-cp -f /usr/share/automake/config.* .
+%{__libtoolize}
+%{__aclocal}
+%{__autoconf}
+%{__autoheader}
+%{__automake}
 %configure \
 	--with-python-version=%{py_ver}
 %{__make} \
