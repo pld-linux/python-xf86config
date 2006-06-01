@@ -8,12 +8,13 @@ Group:		Libraries
 Source0:	pyxf86config-%{version}.tar.gz
 # Source0-md5:	43488299e096b3fed4f080579f9e7fbb
 URL:		http://www.redhat.com/
-BuildRequires:	XFree86-devel
+#BuildRequires:	XFree86-devel
 BuildRequires:	automake
 BuildRequires:	glib2-devel >= 2.0.0
 BuildRequires:	pkgconfig
 BuildRequires:	python
 BuildRequires:	python-devel
+BuildRequires:	xorg-xserver-server-devel
 %pyrequires_eq	python-libs
 ExcludeArch:	ppc64 s390 s390x
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
