@@ -13,7 +13,7 @@ BuildRequires:	glib2-devel >= 2.0.0
 BuildRequires:	pkgconfig
 BuildRequires:	python
 BuildRequires:	python-devel
-BuildRequires:	xorg-xserver-server-devel
+BuildRequires:	xorg-xserver-server-devel >= 1.1.0-0.3
 %pyrequires_eq	python-libs
 ExcludeArch:	ppc64 s390 s390x
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
