@@ -2,7 +2,7 @@ Summary:	Python wrappers for libxf86config
 Summary(pl):	Pythonowe dowi±zania do libxf86config
 Name:		python-xf86config
 Version:	0.3.24
-Release:	0.1
+Release:	1
 License:	GPL
 Group:		Libraries
 Source0:	pyxf86config-%{version}.tar.gz
@@ -49,6 +49,10 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+%py_comp $RPM_BUILD_ROOT%{py_sitedir}
+%py_ocomp $RPM_BUILD_ROOT%{py_sitedir}
+%py_postclean
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -56,4 +60,4 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README NEWS AUTHORS ChangeLog
 %attr(755,root,root) %{py_sitedir}/ixf86configmodule.so
-%{py_sitedir}/xf86config.py
+%{py_sitedir}/xf86config.py[co]
