@@ -1,5 +1,5 @@
 Summary:	Python wrappers for libxf86config
-Summary(pl):	Pythonowe dowi±zania do libxf86config
+Summary(pl.UTF-8):   Pythonowe dowiÄ…zania do libxf86config
 Name:		python-xf86config
 Version:	0.3.24
 Release:	0.1
@@ -24,10 +24,10 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Python wrappers for the X server config file library libxf86config. It
 is used to read and write X server configuration files.
 
-%description -l pl
-Pythonowe dowi±zania do biblioteki pliku konfiguracyjnego X serwera
+%description -l pl.UTF-8
+Pythonowe dowiÄ…zania do biblioteki pliku konfiguracyjnego X serwera
 libxf86config. Jest ona wykorzystywana do odczytywania i zapisywania
-plików konfiguracyjnych X serwera.
+plikÃ³w konfiguracyjnych X serwera.
 
 %prep
 %setup -q -n pyxf86config-%{version}
