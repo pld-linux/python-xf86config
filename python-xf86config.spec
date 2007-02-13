@@ -1,5 +1,5 @@
 Summary:	Python wrappers for libxf86config
-Summary(pl.UTF-8):   Pythonowe dowiązania do libxf86config
+Summary(pl.UTF-8):	Pythonowe dowiązania do libxf86config
 Name:		python-xf86config
 Version:	0.3.24
 Release:	0.1
