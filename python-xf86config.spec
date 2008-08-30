@@ -1,12 +1,13 @@
 Summary:	Python wrappers for libxf86config
 Summary(pl.UTF-8):	Pythonowe dowiązania do libxf86config
 Name:		python-xf86config
-Version:	0.3.34
+Version:	0.3.37
 Release:	1
 License:	GPL
 Group:		Libraries
 Source0:	pyxf86config-%{version}.tar.bz2
-# Source0-md5:	9299e5e91f457f036139a1f6c35a8bf2
+# Source0-md5:	0ea1b54c1a9cbff7f67126a6c048361e
+Patch0:		%{name}-libtool.patch
 URL:		http://www.redhat.com/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -31,6 +32,7 @@ plików konfiguracyjnych X serwera.
 
 %prep
 %setup -q -n pyxf86config-%{version}
+%patch0 -p1
 
 %build
 %{__libtoolize}
