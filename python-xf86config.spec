@@ -5,10 +5,11 @@ Version:	0.3.37
 Release:	1
 License:	GPL
 Group:		Libraries
+# https://fedorahosted.org/releases/p/y/pyxf86config/ (not yet)
 Source0:	pyxf86config-%{version}.tar.bz2
 # Source0-md5:	0ea1b54c1a9cbff7f67126a6c048361e
 Patch0:		%{name}-libtool.patch
-URL:		http://www.redhat.com/
+URL:		https://fedoraproject.org/wiki/Pyxf86config
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	glib2-devel >= 2.0.0
