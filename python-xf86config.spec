@@ -2,7 +2,7 @@ Summary:	Python wrappers for libxf86config
 Summary(pl.UTF-8):	Pythonowe dowiązania do libxf86config
 Name:		python-xf86config
 Version:	0.3.37
-Release:	1
+Release:	2
 License:	GPL
 Group:		Libraries
 # https://fedorahosted.org/releases/p/y/pyxf86config/ (not yet)
